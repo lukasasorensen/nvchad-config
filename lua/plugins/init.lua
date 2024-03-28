@@ -8,6 +8,7 @@ return {
   },
   {
     "neoclide/coc.nvim",
+    enabled = false,
     lazy = false,
     branch = "release",
     config = function()
@@ -28,17 +29,34 @@ return {
       require "configs.lspconfig"
     end,
   },
+  {
+    "pangloss/vim-javascript",
+    lazy = false,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server", "stylua",
+        "html-lsp", "css-lsp", "prettier",
+        "json-lsp", "eslint-lsp", "typescript-language-server"
+      },
+    },
+  },
+  {
+    'dense-analysis/ale',
+    lazy = false,
+    config = function()
+      -- Configuration goes here.
+      local g = vim.g
+      g.ale_linters = {
+        javascript = { "eslint" },
+        typescript = { "eslint" }
+      }
+    end
+  }
   -- These are some examples, uncomment them if you want to see them work
   --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
   --
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
