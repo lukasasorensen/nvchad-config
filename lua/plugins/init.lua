@@ -73,17 +73,21 @@ return {
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     }
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc",
+        "html", "css", "javascript", "typescript", "nvim", "LazyGit", "ale", "json", "tsx"
+      },
+      autotag = {
+        enable = true,
+      }
+    },
+  },
+  {
+    "https://github.com/tpope/vim-sleuth",
+    event = "BufRead"
   }
-  -- These are some examples, uncomment them if you want to see them work
-  --
-  --
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
 }
